@@ -215,12 +215,19 @@ namespace Nohal.RleEditor.RleParser
                         //TODO: not nice to assume this ColorTable
                     try
                     {
-                        SymbolVectors.Add(vs.Code, vs);
+                        if (vs.IsValid())
+                        {
+                            SymbolVectors.Add(vs.Code, vs);
+                        }
+                        else
+                        {
+                            Debug.Print("Vector symbol {0} is not valid and can't be merged.", vs.Code);
+                        }
                     }
                     catch (Exception ex)
                     {
                         Debug.Print(
-                            "Vector {0} can't be loaded with following message: {1}, assuming already exists and replacing",
+                            "Vector symbol {0} can't be loaded with following message: {1}, assuming already exists and replacing",
                             vs.Code, ex.Message);
                         SymbolVectors[vs.Code] = vs;
                     }
@@ -236,7 +243,14 @@ namespace Nohal.RleEditor.RleParser
                         //TODO: not nice to assume this ColorTable
                     try
                     {
-                        LineVectors.Add(vl.Code, vl);
+                        if (vl.IsValid())
+                        {
+                            LineVectors.Add(vl.Code, vl);
+                        }
+                        else
+                        {
+                            Debug.Print("Vector symbol {0} is not valid and can't be merged.", vl.Code);
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -257,7 +271,14 @@ namespace Nohal.RleEditor.RleParser
                         //TODO: not nice to assume this ColorTable
                     try
                     {
-                        PatternVectors.Add(vp.Code, vp);
+                        if (vp.IsValid())
+                        {
+                            PatternVectors.Add(vp.Code, vp);
+                        }
+                        else
+                        {
+                            Debug.Print("Bitmap symbol {0} is not valid and can't be merged.", vp.Code);
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -284,7 +305,14 @@ namespace Nohal.RleEditor.RleParser
                         //TODO: not nice to assume this ColorTable
                     try
                     {
-                        SymbolBitmaps.Add(bs.Code, bs);
+                        if (bs.IsValid())
+                        {
+                            SymbolBitmaps.Add(bs.Code, bs);
+                        }
+                        else
+                        {
+                            Debug.Print("Bitmap symbol {0} is not valid and can't be merged.", bs.Code);
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -305,7 +333,14 @@ namespace Nohal.RleEditor.RleParser
                         //TODO: not nice to assume this ColorTable
                     try
                     {
-                        PatternBitmaps.Add(bp.Code, bp);
+                        if (bp.IsValid())
+                        {
+                            PatternBitmaps.Add(bp.Code, bp);
+                        }
+                        else
+                        {
+                            Debug.Print("Bitmap symbol {0} is not valid and can't be merged.", bp.Code);
+                        }
                     }
                     catch (Exception ex)
                     {

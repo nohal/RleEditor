@@ -124,7 +124,23 @@ namespace Nohal.RleEditor.RleParser
         public override bool IsValid()
         {
             bool valid = true;
-            //TODO - implement validation
+            //TODO - implement more validation
+            if (BitmapData.Length < 1) //Not enough...
+            {
+                valid = false;
+            }
+            if (this.Code.Length != 8)
+            {
+                valid = false;
+            }
+            if (this.Colors.Count < 1)
+            {
+                valid = false;
+            }
+            if (this.Height < 1 || this.Width < 1)
+            {
+                valid = false;
+            }
             return valid;
         }
 

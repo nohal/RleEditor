@@ -102,6 +102,12 @@ namespace Nohal.RleEditor
                 {
                     this.Symbol.Colors.Add(Convert.ToChar(item.SubItems[1].Text), Symbol.ColorTable.Colors[item.Text]);
                 }
+                if (!Symbol.IsValid())
+                {
+                    MessageBox.Show("Object is not valid, can't continue...", "Warning", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    e.Cancel = true;
+                }
             }
         }
 
