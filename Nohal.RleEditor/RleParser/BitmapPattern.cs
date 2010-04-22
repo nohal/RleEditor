@@ -23,6 +23,8 @@ using System.Text;
 
 namespace Nohal.RleEditor.RleParser
 {
+    using System.Diagnostics;
+
     //0001
     //PATT   10SY00001NIL
     //         |code   1|val2 |val3|val4|offx|offy|widt|heig|hotx|hoty
@@ -50,6 +52,8 @@ namespace Nohal.RleEditor.RleParser
         public int Value3 { get; set; }
         public int Value4 { get; set; }
 
+        private bool _isvalid = true;
+
         public BitmapPattern(string bitmapdata, ColorTable colortable)
             : base()
         {
@@ -57,40 +61,70 @@ namespace Nohal.RleEditor.RleParser
             string[] lines = bitmapdata.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var line in lines)
             {
-                switch (line.Substring(0, 4))
+                try
                 {
-                    case "PATT":
-                        PATT = RleParser.StripLenFromString(line.Substring(4).Trim()).Trim(RleParser.Term); //TODO: what does it mean?
-                        ObjectId = Convert.ToInt32(PATT.Substring(2, 5));
-                        break;
-                    case "PATD":
-                        Code = RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(0, 8);
-                        SymbolType = RleParser.StripLenFromString(line.Substring(4).Trim())[8];
-                        Value2 = RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(9, 6);
-                        Value3 = Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(15, 5));
-                        Value4 = Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(20, 5));
-                        OffsetX = Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(25, 5));
-                        OffsetY = Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(30, 5));
-                        Width = Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(35, 5));
-                        Height = Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(40, 5));
-                        HotspotX = Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(45, 5));
-                        HotspotY = Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(50).Trim(RleParser.Term)); //TODO: it looks shorter, should be 55 in total, but is just 54!
-                        break;
-                    case "PXPO":
-                        Description = RleParser.StripLenFromString(line.Substring(4).Trim()).Trim(RleParser.Term);
-                        break;
-                    case "PCRF":
-                        string pal = RleParser.StripLenFromString(line.Substring(4).Trim()).Trim(RleParser.Term);
-                        Colors.Clear();
-                        while (pal.Length > 0)
-                        {
-                            Colors.Add(pal[0], colortable.Colors[pal.Substring(1, 5)]);
-                            pal = pal.Substring(6);
-                        }
-                        break;
-                    case "PBTM":
-                        AddLine(RleParser.StripLenFromString(line.Substring(4).Trim()).Trim(RleParser.Term));
-                        break;
+                    switch (line.Substring(0, 4))
+                    {
+                        case "PATT":
+                            PATT = RleParser.StripLenFromString(line.Substring(4).Trim()).Trim(RleParser.Term);
+                                //TODO: what does it mean?
+                            ObjectId = Convert.ToInt32(PATT.Substring(2, 5));
+                            break;
+                        case "PATD":
+                            Code = RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(0, 8);
+                            SymbolType = RleParser.StripLenFromString(line.Substring(4).Trim())[8];
+                            Value2 = RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(9, 6);
+                            Value3 =
+                                Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(15, 5));
+                            Value4 =
+                                Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(20, 5));
+                            OffsetX =
+                                Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(25, 5));
+                            OffsetY =
+                                Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(30, 5));
+                            Width =
+                                Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(35, 5));
+                            Height =
+                                Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(40, 5));
+                            HotspotX =
+                                Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(45, 5));
+                            HotspotY =
+                                Convert.ToInt32(
+                                    RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(50).Trim(
+                                        RleParser.Term));
+                                //TODO: it looks shorter, should be 55 in total, but is just 54!
+                            break;
+                        case "PXPO":
+                            Description = RleParser.StripLenFromString(line.Substring(4).Trim()).Trim(RleParser.Term);
+                            break;
+                        case "PCRF":
+                            string pal = RleParser.StripLenFromString(line.Substring(4).Trim()).Trim(RleParser.Term);
+                            Colors.Clear();
+                            while (pal.Length > 0)
+                            {
+                                try
+                                {
+                                    Colors.Add(pal[0], colortable.Colors[pal.Substring(1, 5)]);
+                                }
+                                catch (Exception e)
+                                {
+                                    _isvalid = false;
+                                    Debug.Print(
+                                        "Symbol {0}. The requested color {1} doesn't exist in the palette.",
+                                        this.Code,
+                                        pal.Substring(1, 5));
+                                }
+                                pal = pal.Substring(6);
+                            }
+                            break;
+                        case "PBTM":
+                            AddLine(RleParser.StripLenFromString(line.Substring(4).Trim()).Trim(RleParser.Term));
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.Print("Error while parsing object: {0}", bitmapdata);
                 }
             }
         }
@@ -123,25 +157,24 @@ namespace Nohal.RleEditor.RleParser
 
         public override bool IsValid()
         {
-            bool valid = true;
             //TODO - implement more validation
             if (BitmapData.Length < 1) //Not enough...
             {
-                valid = false;
+                _isvalid = false;
             }
             if (this.Code.Length != 8)
             {
-                valid = false;
+                _isvalid = false;
             }
             if (this.Colors.Count < 1)
             {
-                valid = false;
+                _isvalid = false;
             }
             if (this.Height < 1 || this.Width < 1)
             {
-                valid = false;
+                _isvalid = false;
             }
-            return valid;
+            return _isvalid;
         }
 
         public BitmapPattern Clone()

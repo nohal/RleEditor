@@ -23,6 +23,8 @@ using System.Text;
 
 namespace Nohal.RleEditor.RleParser
 {
+    using System.Diagnostics;
+
     //0001    501656
     //SYMB   10SY03216NIL
     //SYMD   39AISONE01V073710161500405001710717401445
@@ -47,6 +49,8 @@ namespace Nohal.RleEditor.RleParser
         public string LXPO { get; set; }
         public string LCRF { get; set; }
 
+        private bool _isvalid = true;
+
         public VectorLine(string vectordata, ColorTable colortable)
             : base()
         {
@@ -54,36 +58,61 @@ namespace Nohal.RleEditor.RleParser
             string[] lines = vectordata.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var line in lines)
             {
-                switch (line.Substring(0, 4))
+                try
                 {
-                    case "LNST":
-                        LNST = RleParser.StripLenFromString(line.Substring(4).Trim()).Trim(RleParser.Term); //TODO: what does it mean? - means ID
-                        ObjectId = Convert.ToInt32(LNST.Substring(2, 5));
-                        break;
-                    case "LIND":
-                        Code = RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(0, 8);
-                        //SymbolType = RleParser.StripLenFromString(line.Substring(4).Trim())[8];
-                        OffsetX = Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(8, 5));
-                        OffsetY = Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(13, 5));
-                        Width = Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(18, 5));
-                        Height = Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(23, 5));
-                        HotspotX = Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(28, 5));
-                        HotspotY = Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(33, 5));
-                        break;
-                    case "LXPO":
-                        Description = RleParser.StripLenFromString(line.Substring(4).Trim()).Trim(RleParser.Term);
-                        break;
-                    case "LCRF":
-                        string pal = RleParser.StripLenFromString(line.Substring(4).Trim()).Trim(RleParser.Term);
-                        while (pal.Length > 0)
-                        {
-                            Colors.Add(pal[0], colortable.Colors[pal.Substring(1, 5)]);
-                            pal = pal.Substring(6);
-                        }
-                        break;
-                    case "LVCT":
-                        AddLine(RleParser.StripLenFromString(line.Substring(4).Trim()).Trim(RleParser.Term));
-                        break;
+                    switch (line.Substring(0, 4))
+                    {
+                        case "LNST":
+                            LNST = RleParser.StripLenFromString(line.Substring(4).Trim()).Trim(RleParser.Term);
+                                //TODO: what does it mean? - means ID
+                            ObjectId = Convert.ToInt32(LNST.Substring(2, 5));
+                            break;
+                        case "LIND":
+                            Code = RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(0, 8);
+                            //SymbolType = RleParser.StripLenFromString(line.Substring(4).Trim())[8];
+                            OffsetX =
+                                Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(8, 5));
+                            OffsetY =
+                                Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(13, 5));
+                            Width =
+                                Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(18, 5));
+                            Height =
+                                Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(23, 5));
+                            HotspotX =
+                                Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(28, 5));
+                            HotspotY =
+                                Convert.ToInt32(RleParser.StripLenFromString(line.Substring(4).Trim()).Substring(33, 5));
+                            break;
+                        case "LXPO":
+                            Description = RleParser.StripLenFromString(line.Substring(4).Trim()).Trim(RleParser.Term);
+                            break;
+                        case "LCRF":
+                            string pal = RleParser.StripLenFromString(line.Substring(4).Trim()).Trim(RleParser.Term);
+                            while (pal.Length > 0)
+                            {
+                                try
+                                {
+                                    Colors.Add(pal[0], colortable.Colors[pal.Substring(1, 5)]);
+                                }
+                                catch (Exception e)
+                                {
+                                    _isvalid = false;
+                                    Debug.Print(
+                                        "Symbol {0}. The requested color {1} doesn't exist in the palette.",
+                                        this.Code,
+                                        pal.Substring(1, 5));
+                                }
+                                pal = pal.Substring(6);
+                            }
+                            break;
+                        case "LVCT":
+                            AddLine(RleParser.StripLenFromString(line.Substring(4).Trim()).Trim(RleParser.Term));
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.Print("Error while parsing object: {0}", vectordata);
                 }
             }
         }
@@ -111,25 +140,24 @@ namespace Nohal.RleEditor.RleParser
 
         public override bool IsValid()
         {
-            bool valid = true;
             //TODO - implement more validation
             if (BitmapData.Length < 1) //Not enough...
             {
-                valid = false;
+                _isvalid = false;
             }
             if (this.Code.Length != 8)
             {
-                valid = false;
+                _isvalid = false;
             }
             if (this.Colors.Count < 1)
             {
-                valid = false;
+                _isvalid = false;
             }
             if (this.Height < 1 || this.Width < 1)
             {
-                valid = false;
+                _isvalid = false;
             }
-            return valid;
+            return _isvalid;
         }
 
         public VectorLine Clone()

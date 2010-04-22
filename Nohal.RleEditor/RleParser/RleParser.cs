@@ -227,9 +227,12 @@ namespace Nohal.RleEditor.RleParser
                     catch (Exception ex)
                     {
                         Debug.Print(
-                            "Vector symbol {0} can't be loaded with following message: {1}, assuming already exists and replacing",
+                            "Vector symbol {0} can't be loaded with following message: {1}, if not invalid, assuming already exists and replacing",
                             vs.Code, ex.Message);
-                        SymbolVectors[vs.Code] = vs;
+                        if (vs.Code != null)
+                        {
+                            this.SymbolVectors[vs.Code] = vs;
+                        }
                     }
                     if (vs.ObjectId >= NextId)
                     {
@@ -255,9 +258,12 @@ namespace Nohal.RleEditor.RleParser
                     catch (Exception ex)
                     {
                         Debug.Print(
-                            "Vector {0} can't be loaded with following message: {1}, assuming already exists and replacing",
+                            "Vector {0} can't be loaded with following message: {1}, if not invalid, assuming already exists and replacing",
                             vl.Code, ex.Message);
-                        LineVectors[vl.Code] = vl;
+                        if (vl.Code != null)
+                        {
+                            this.LineVectors[vl.Code] = vl;
+                        }
                     }
                     if (vl.ObjectId >= NextId)
                     {
@@ -283,9 +289,12 @@ namespace Nohal.RleEditor.RleParser
                     catch (Exception ex)
                     {
                         Debug.Print(
-                            "Vector {0} can't be loaded with following message: {1}, assuming already exists and replacing",
+                            "Vector {0} can't be loaded with following message: {1}, if not invalid, assuming already exists and replacing",
                             vp.Code, ex.Message);
-                        PatternVectors[vp.Code] = vp;
+                        if (vp.Code != null)
+                        {
+                            this.PatternVectors[vp.Code] = vp;
+                        }
                     }
                     if (vp.ObjectId >= NextId)
                     {
@@ -317,9 +326,12 @@ namespace Nohal.RleEditor.RleParser
                     catch (Exception ex)
                     {
                         Debug.Print(
-                            "Bitmap symbol {0} can't be loaded with following message: '{1}', assuming already exists and replacing",
+                            "Bitmap symbol {0} can't be loaded with following message: '{1}', if not invalid, assuming already exists and replacing",
                             bs.Code, ex.Message);
-                        SymbolBitmaps[bs.Code] = bs;
+                        if (bs.Code != null)
+                        {
+                            this.SymbolBitmaps[bs.Code] = bs;
+                        }
                     }
                     if (bs.ObjectId >= NextId)
                     {
@@ -345,9 +357,12 @@ namespace Nohal.RleEditor.RleParser
                     catch (Exception ex)
                     {
                         Debug.Print(
-                            "Bitmap symbol {0} can't be loaded with following message: '{1}', assuming already exists and replacing",
+                            "Bitmap symbol {0} can't be loaded with following message: '{1}', if not invalid, assuming already exists and replacing",
                             bp.Code, ex.Message);
-                        PatternBitmaps[bp.Code] = bp;
+                        if (bp.Code != null)
+                        {
+                            this.PatternBitmaps[bp.Code] = bp;
+                        }
                     }
                     if (bp.ObjectId >= NextId)
                     {
