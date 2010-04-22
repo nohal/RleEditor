@@ -1,0 +1,16 @@
+2010-XX-XX - version 0.2
+* Formal object validation
+* Clones complain about duplicity in code before loosing the changes
+* Scrolling to newly created clones
+* Palette switching changes symbol rendering
+* Creating backups of RLE on save
+* LUPT doubleclick opens editor window
+* LUPT grid speedup and refocus on last used row
+* Color table merging and replacement
+* Color table deletion
+* Adding colors to palette in bitmap cloning form
+* Got rid of the two save file prompts at exit
+* Introduced logging (configurable in app.config)
+* Fixed bugs... and introduced new ;)
+2010-04-13 - version 0.1
+* Initial release

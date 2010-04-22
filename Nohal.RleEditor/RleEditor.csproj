@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{21E12D08-1CD1-42F8-B7A5-857CAC400187}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Nohal.RleEditor</RootNamespace>
+    <AssemblyName>RleEditor</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <StartupObject>
+    </StartupObject>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
+    <ApplicationIcon>aboutmap.ico</ApplicationIcon>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>0.1.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LumenWorks.Framework.IO, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\CsvReader_src\LumenWorks.Framework.IO\bin\Release\LumenWorks.Framework.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CloneBitmapForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CloneBitmapForm.Designer.cs">
+      <DependentUpon>CloneBitmapForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CloneVectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CloneVectorForm.Designer.cs">
+      <DependentUpon>CloneVectorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CsvMergeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CsvMergeForm.Designer.cs">
+      <DependentUpon>CsvMergeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditorConfiguration.cs" />
+    <Compile Include="PaletteListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RleParser\BitmapPattern.cs" />
+    <Compile Include="RleParser\BitmapSymbol.cs" />
+    <Compile Include="RleParser\ColorRecord.cs" />
+    <Compile Include="RleParser\ColorTable.cs" />
+    <Compile Include="RleParser\LookupTable.cs" />
+    <Compile Include="RleParser\Remark.cs" />
+    <Compile Include="RleParser\RleObject.cs" />
+    <Compile Include="RleParser\RleParser.cs" />
+    <Compile Include="RleParser\S57Attribute.cs" />
+    <Compile Include="RleParser\S57AttributeDecode.cs" />
+    <Compile Include="RleParser\S57Data.cs" />
+    <Compile Include="RleParser\S57ExpectedInput.cs" />
+    <Compile Include="RleParser\S57ObjectClass.cs" />
+    <Compile Include="RleParser\Symbol.cs" />
+    <Compile Include="RleParser\Utils\CIELab.cs" />
+    <Compile Include="RleParser\Utils\CIEXYZ.cs" />
+    <Compile Include="RleParser\Utils\CIEYxy.cs" />
+    <Compile Include="RleParser\Utils\CMYK.cs" />
+    <Compile Include="RleParser\Utils\ColorSpaceHelper.cs" />
+    <Compile Include="RleParser\Utils\HSB.cs" />
+    <Compile Include="RleParser\Utils\HSL.cs" />
+    <Compile Include="RleParser\Utils\RGB.cs" />
+    <Compile Include="RleParser\Utils\StringExtensions.cs" />
+    <Compile Include="RleParser\Utils\YUV.cs" />
+    <Compile Include="RleParser\VectorLine.cs" />
+    <Compile Include="RleParser\VectorPattern.cs" />
+    <Compile Include="RleParser\VectorSymbol.cs" />
+    <Compile Include="SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogForm.Designer.cs">
+      <DependentUpon>DialogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LuptEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LuptEditForm.Designer.cs">
+      <DependentUpon>LuptEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RleEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RleEditorForm.Designer.cs">
+      <DependentUpon>RleEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CloneBitmapForm.resx">
+      <DependentUpon>CloneBitmapForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CloneVectorForm.resx">
+      <DependentUpon>CloneVectorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CsvMergeForm.resx">
+      <DependentUpon>CsvMergeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogForm.resx">
+      <DependentUpon>DialogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LuptEditForm.resx">
+      <DependentUpon>LuptEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RleEditorForm.resx">
+      <DependentUpon>RleEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="aboutmap.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

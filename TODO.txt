@@ -1,0 +1,2 @@
+* Format error checking
+* Conditional symbology procedure TOPMARI1 (described in ies102_e.pdf) - add to s52cnsy.cpp or modify TOPMAR01 and change the RLE accordingly
