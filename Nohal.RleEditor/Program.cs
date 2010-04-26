@@ -33,7 +33,7 @@ namespace Nohal.RleEditor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-#if DEBUG
+#if !DEBUG
             Application.Run(new RleEditorForm());
 #else 
             try
