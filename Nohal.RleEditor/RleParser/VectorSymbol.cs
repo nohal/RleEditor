@@ -115,6 +115,7 @@ namespace Nohal.RleEditor.RleParser
             //SYMB   10SY00095NIL
             sb.AppendLine(string.Format("SYMB{0}", RleParser.AddLength(string.Format("{0}{1:00000;-0000}{2}", ObjectType, ObjectId, RleParser.Nil))));
             //SYMD   39NMKREG12R000150001500031000310000000000
+            //         39ARPONE01V|05033|02167|00394|00000|04828|02167
             sb.AppendLine(string.Format("SYMD{0}", RleParser.AddLength(string.Format("{0}{1}{2:00000;-0000}{3:00000;-0000}{4:00000;-0000}{5:00000;-0000}{6:00000;-0000}{7:00000;-0000}", Code, SymbolType, OffsetX, OffsetY, Width, Height, HotspotX, HotspotY)))); 
             //SXPO   32notice mark, special attention
             sb.AppendLine(string.Format("SXPO{0}", RleParser.AddTermAndLength(string.Format("{0}", Description))));
@@ -149,7 +150,7 @@ namespace Nohal.RleEditor.RleParser
             {
                 _isvalid = false;
             }
-            if (this.Height < 1 || this.Width < 1)
+            if (this.Height < 0 || this.Width < 0) //lines have width or height = 0, it's weird...
             {
                 _isvalid = false;
             }

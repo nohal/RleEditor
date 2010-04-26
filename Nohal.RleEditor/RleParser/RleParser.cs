@@ -283,7 +283,7 @@ namespace Nohal.RleEditor.RleParser
                         }
                         else
                         {
-                            Debug.Print("Bitmap symbol {0} is not valid and can't be merged.", vp.Code);
+                            Debug.Print("Vector symbol {0} is not valid and can't be merged.", vp.Code);
                         }
                     }
                     catch (Exception ex)

@@ -149,7 +149,7 @@ namespace Nohal.RleEditor.RleParser
             {
                 _isvalid = false;
             }
-            if (this.Height < 1 || this.Width < 1)
+            if (this.Height < 0 || this.Width < 0) //lines have width or height = 0, it's weird...
             {
                 _isvalid = false;
             }
