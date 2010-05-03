@@ -30,6 +30,7 @@ namespace Nohal.RleEditor
         public string LastUsedFile { get; set; }
         public bool OpenLastUsedOnStartup { get; set; }
         public bool AutoSortLupts { get; set; }
+        public string FileHeader { get; set; }
 
         public void Save()
         {
@@ -39,6 +40,7 @@ namespace Nohal.RleEditor
             cfg.AppSettings.Settings.Add("LastUsedFile", LastUsedFile);
             cfg.AppSettings.Settings.Add("OpenLastUsedOnStartup", OpenLastUsedOnStartup.ToString());
             cfg.AppSettings.Settings.Add("AutoSortLupts", AutoSortLupts.ToString());
+            cfg.AppSettings.Settings.Add("FileHeader", FileHeader);
             cfg.Save(ConfigurationSaveMode.Full);
         }
 
@@ -46,10 +48,11 @@ namespace Nohal.RleEditor
         {
             try
             {
-                S57Folder = ConfigurationManager.AppSettings["S57Folder"].ToString();
-                LastUsedFile = ConfigurationManager.AppSettings["LastUsedFile"].ToString();
+                S57Folder = ConfigurationManager.AppSettings["S57Folder"];
+                LastUsedFile = ConfigurationManager.AppSettings["LastUsedFile"];
                 OpenLastUsedOnStartup = Convert.ToBoolean(ConfigurationManager.AppSettings["OpenLastUsedOnStartup"]);
                 AutoSortLupts = Convert.ToBoolean(ConfigurationManager.AppSettings["AutoSortLupts"]);
+                FileHeader = ConfigurationManager.AppSettings["FileHeader"];
             }
             catch (Exception ex)
             {

@@ -887,7 +887,7 @@ namespace Nohal.RleEditor
 
         private void SaveChanges(string filename)
         {
-            parser.SaveRleToFile(filename);
+            parser.SaveRleToFile(filename, config.FileHeader);
             changesSaved = true;
         }
 

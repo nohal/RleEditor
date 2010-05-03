@@ -33,6 +33,8 @@ namespace Nohal.RleEditor
             this.btnBrowseS57Folder = new System.Windows.Forms.Button();
             this.cbOpenLastUsed = new System.Windows.Forms.CheckBox();
             this.cbAutoSortLupts = new System.Windows.Forms.CheckBox();
+            this.tbFileHeader = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -82,12 +84,32 @@ namespace Nohal.RleEditor
             this.cbAutoSortLupts.Text = "Auto sort lookup tables on save";
             this.cbAutoSortLupts.UseVisualStyleBackColor = true;
             // 
+            // tbFileHeader
+            // 
+            this.tbFileHeader.Location = new System.Drawing.Point(15, 110);
+            this.tbFileHeader.Multiline = true;
+            this.tbFileHeader.Name = "tbFileHeader";
+            this.tbFileHeader.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.tbFileHeader.Size = new System.Drawing.Size(594, 206);
+            this.tbFileHeader.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 94);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "File Header";
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(623, 359);
             this.ControlBox = false;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tbFileHeader);
             this.Controls.Add(this.cbAutoSortLupts);
             this.Controls.Add(this.cbOpenLastUsed);
             this.Controls.Add(this.label1);
@@ -106,6 +128,8 @@ namespace Nohal.RleEditor
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.cbOpenLastUsed, 0);
             this.Controls.SetChildIndex(this.cbAutoSortLupts, 0);
+            this.Controls.SetChildIndex(this.tbFileHeader, 0);
+            this.Controls.SetChildIndex(this.label2, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,6 +142,8 @@ namespace Nohal.RleEditor
         private System.Windows.Forms.Button btnBrowseS57Folder;
         private System.Windows.Forms.CheckBox cbOpenLastUsed;
         private System.Windows.Forms.CheckBox cbAutoSortLupts;
+        private System.Windows.Forms.TextBox tbFileHeader;
+        private System.Windows.Forms.Label label2;
 
 
     }

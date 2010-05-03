@@ -52,6 +52,7 @@ namespace Nohal.RleEditor
                 Config.S57Folder = tbS57Folder.Text;
                 Config.OpenLastUsedOnStartup = cbOpenLastUsed.Checked;
                 Config.AutoSortLupts = cbAutoSortLupts.Checked;
+                Config.FileHeader = tbFileHeader.Text;
             }
         }
 
@@ -60,6 +61,7 @@ namespace Nohal.RleEditor
             tbS57Folder.Text = Config.S57Folder;
             cbOpenLastUsed.Checked = Config.OpenLastUsedOnStartup;
             cbAutoSortLupts.Checked = Config.AutoSortLupts;
+            tbFileHeader.Text = Config.FileHeader;
         }
     }
 }

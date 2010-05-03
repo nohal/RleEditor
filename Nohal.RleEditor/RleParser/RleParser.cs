@@ -578,7 +578,7 @@ namespace Nohal.RleEditor.RleParser
             return sb.ToString();
         }
 
-        public void SaveRleToFile(string fileName)
+        public void SaveRleToFile(string fileName, string fileHeader)
         {
             if (File.Exists(fileName))
             {
@@ -586,6 +586,10 @@ namespace Nohal.RleEditor.RleParser
             }
             TextWriter tw = new StreamWriter(fileName, false);
 
+            if (!string.IsNullOrEmpty(fileHeader))
+            {
+                tw.WriteLine(fileHeader);
+            }
             foreach (var table in ColorTables.Values)
             {
                 tw.WriteLine(table.ToString());
