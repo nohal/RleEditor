@@ -4,3 +4,4 @@
 * ? Conditional symbology procedure TOPMARI1 (described in ies102_e.pdf) - add to s52cnsy.cpp or modify TOPMAR01 and change the RLE accordingly
 * ? Conditional symbology procedure OBSTRN05 - I think it replaces OBSTRN04 we already have
 * ?CSP RESAREI1
+* Find out how to make LUPTs for objects like: (Austria) Feature Class: notmrk Position: 048 18.951 N   014 19.042 E   INFORM      (1)(1)(1  company Lavarge)
