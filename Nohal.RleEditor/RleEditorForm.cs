@@ -887,6 +887,10 @@ namespace Nohal.RleEditor
 
         private void SaveChanges(string filename)
         {
+            if (this.config.AutoSortLupts)
+            {
+                this.SortAllLookupTables();
+            }
             parser.SaveRleToFile(filename, config.FileHeader);
             changesSaved = true;
         }
@@ -1138,7 +1142,11 @@ namespace Nohal.RleEditor
             parser.LookupTables[SelectedLupt()].Remove(Convert.ToInt32(listViewLookupTable.SelectedItems[0].ImageKey));
             int selected = listViewLookupTable.SelectedIndices[0];
             listViewLookupTable.Items.RemoveAt(selected);
-            listViewLookupTable.SelectedIndices.Add(selected < listViewLookupTable.Items.Count ? selected : selected - 1);
+            if (listViewLookupTable.Items.Count > 0)
+            {
+                listViewLookupTable.SelectedIndices.Add(
+                    selected < listViewLookupTable.Items.Count ? selected : selected - 1);
+            }
             listViewLookupTable.Focus();
             changesSaved = false;
         }

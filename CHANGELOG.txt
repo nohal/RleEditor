@@ -1,3 +1,5 @@
+2010-05-10 - version 0.2.1
+* Fixed bugs...
 * Configurable file header
 2010-04-26 - version 0.2
 * Formal object validation
