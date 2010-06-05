@@ -33,6 +33,8 @@ using Bitmap=Nohal.RleEditor.RleParser.Symbol;
 
 namespace Nohal.RleEditor
 {
+    using System.Drawing.Imaging;
+
     public partial class RleEditorForm : Form
     {
         public RleEditorForm()
@@ -775,22 +777,55 @@ namespace Nohal.RleEditor
             {
                 string selected = listBoxVectors.SelectedItem.ToString();
                 SaveFileDialog dlg = new SaveFileDialog();
-                dlg.Filter = "Symbol Vector Files|*.sym|All Files|*.*";
+                dlg.Filter = "Symbol Vector Files|*.sym|PNG Bitmap|*.png|JPEG Bitmap|*.jpg|All Files|*.*";
                 dlg.FileName = selected;
                 dlg.AddExtension = true;
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    if (parser.SymbolVectors.Keys.Contains(selected))
+                    switch (Path.GetExtension(dlg.FileName).ToLower())
                     {
-                        parser.SaveSymbolToFile(dlg.FileName, parser.SymbolVectors[selected]);
-                    }
-                    if (parser.PatternVectors.Keys.Contains(selected))
-                    {
-                        parser.SaveSymbolToFile(dlg.FileName, parser.PatternVectors[selected]);
-                    }
-                    if (parser.LineVectors.Keys.Contains(selected))
-                    {
-                        parser.SaveSymbolToFile(dlg.FileName, parser.LineVectors[selected]);
+                        case ".jpg":
+                            if (parser.SymbolVectors.Keys.Contains(selected))
+                            {
+                                parser.ExportSymbolToBitmap(dlg.FileName, parser.SymbolVectors[selected], ImageFormat.Jpeg);
+                            }
+                            if (parser.PatternVectors.Keys.Contains(selected))
+                            {
+                                parser.ExportSymbolToBitmap(dlg.FileName, parser.PatternVectors[selected], ImageFormat.Jpeg);
+                            }
+                            if (parser.LineVectors.Keys.Contains(selected))
+                            {
+                                parser.ExportSymbolToBitmap(dlg.FileName, parser.LineVectors[selected], ImageFormat.Jpeg);
+                            }
+                            break;
+                        case ".png":
+                            if (parser.SymbolVectors.Keys.Contains(selected))
+                            {
+                                parser.ExportSymbolToBitmap(dlg.FileName, parser.SymbolVectors[selected], ImageFormat.Png);
+                            }
+                            if (parser.PatternVectors.Keys.Contains(selected))
+                            {
+                                parser.ExportSymbolToBitmap(dlg.FileName, parser.PatternVectors[selected], ImageFormat.Png);
+                            }
+                            if (parser.LineVectors.Keys.Contains(selected))
+                            {
+                                parser.ExportSymbolToBitmap(dlg.FileName, parser.LineVectors[selected], ImageFormat.Png);
+                            }
+                            break;
+                        default:
+                            if (parser.SymbolVectors.Keys.Contains(selected))
+                            {
+                                parser.SaveSymbolToFile(dlg.FileName, parser.SymbolVectors[selected]);
+                            }
+                            if (parser.PatternVectors.Keys.Contains(selected))
+                            {
+                                parser.SaveSymbolToFile(dlg.FileName, parser.PatternVectors[selected]);
+                            }
+                            if (parser.LineVectors.Keys.Contains(selected))
+                            {
+                                parser.SaveSymbolToFile(dlg.FileName, parser.LineVectors[selected]);
+                            }
+                            break;
                     }
                 }
             }
@@ -802,18 +837,43 @@ namespace Nohal.RleEditor
             {
                 string selected = listBoxBitmaps.SelectedItem.ToString();
                 SaveFileDialog dlg = new SaveFileDialog();
-                dlg.Filter = "Symbol Bitmap Files Hi-Res|*.rah|Symbol Bitmap Files Med-Res|*.ram|Symbol Bitmap Files Lo-Res|*.ral|All Files|*.*";
+                dlg.Filter = "Symbol Bitmap Files Hi-Res|*.rah|Symbol Bitmap Files Med-Res|*.ram|Symbol Bitmap Files Lo-Res|*.ral|PNG Bitmap|*.png|JPEG Bitmap|*.jpg|All Files|*.*";
                 dlg.FileName = selected;
                 dlg.AddExtension = true;
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    if (parser.SymbolBitmaps.Keys.Contains(selected))
+                    switch (Path.GetExtension(dlg.FileName).ToLower())
                     {
-                        parser.SaveSymbolToFile(dlg.FileName, parser.SymbolBitmaps[selected]);
-                    }
-                    if (parser.PatternBitmaps.Keys.Contains(selected))
-                    {
-                        parser.SaveSymbolToFile(dlg.FileName, parser.PatternBitmaps[selected]);
+                        case ".jpg":
+                            if (parser.SymbolBitmaps.Keys.Contains(selected))
+                            {
+                                parser.ExportSymbolToBitmap(dlg.FileName, parser.SymbolBitmaps[selected], ImageFormat.Jpeg);
+                            }
+                            if (parser.PatternBitmaps.Keys.Contains(selected))
+                            {
+                                parser.ExportSymbolToBitmap(dlg.FileName, parser.PatternBitmaps[selected], ImageFormat.Jpeg);
+                            }
+                            break;
+                        case ".png":
+                            if (parser.SymbolBitmaps.Keys.Contains(selected))
+                            {
+                                parser.ExportSymbolToBitmap(dlg.FileName, parser.SymbolBitmaps[selected], ImageFormat.Png);
+                            }
+                            if (parser.PatternBitmaps.Keys.Contains(selected))
+                            {
+                                parser.ExportSymbolToBitmap(dlg.FileName, parser.PatternBitmaps[selected], ImageFormat.Png);
+                            }
+                            break;
+                        default:
+                            if (parser.SymbolBitmaps.Keys.Contains(selected))
+                            {
+                                parser.SaveSymbolToFile(dlg.FileName, parser.SymbolBitmaps[selected]);
+                            }
+                            if (parser.PatternBitmaps.Keys.Contains(selected))
+                            {
+                                parser.SaveSymbolToFile(dlg.FileName, parser.PatternBitmaps[selected]);
+                            }
+                            break;
                     }
                 }
             }

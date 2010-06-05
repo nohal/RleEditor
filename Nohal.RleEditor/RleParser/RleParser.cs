@@ -25,6 +25,8 @@ using Nohal.RleEditor.RleParser.Utils;
 
 namespace Nohal.RleEditor.RleParser
 {
+    using System.Drawing.Imaging;
+
     public class RleParser
     {
         public const string PAPER_CHART = "PAPER_CHART";
@@ -47,6 +49,7 @@ namespace Nohal.RleEditor.RleParser
         public const char Term = (char)0x1f;
         public const string Nil = "NIL";
         public int NextId = 0;
+        public ColorTable DefaultColorTable { get; set; }
 
         public RleParser(string rleFilename)
         {
@@ -83,6 +86,10 @@ namespace Nohal.RleEditor.RleParser
                         if (IsColorTable(sb.ToString()))
                         {
                             ColorTable ct = new ColorTable(sb.ToString());
+                            if (DefaultColorTable == null)
+                            {
+                                DefaultColorTable = ct;
+                            }
                             ColorTables.Add(ct.Name, ct);
                         }
                         
@@ -691,6 +698,18 @@ namespace Nohal.RleEditor.RleParser
                 tw.WriteLine(ctab.ToString());
             }
             tw.Close();
+        }
+
+        public void ExportSymbolToBitmap(string fileName, Symbol symbol, ImageFormat imageFormat)
+        {
+            if (this.IsBitmap(symbol.ToString()))
+            {
+                symbol.GetZoomedImage(1, false).Save(fileName, imageFormat);
+            }
+            else
+            {
+                symbol.GetVectorRendering(DefaultColorTable).Save(fileName, imageFormat);
+            }
         }
     }
 }
