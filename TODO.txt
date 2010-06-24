@@ -5,3 +5,4 @@
 * ? Conditional symbology procedure OBSTRN05 - I think it replaces OBSTRN04 we already have
 * ?CSP RESAREI1
 * Find out how to make LUPTs for objects like: (Austria) Feature Class: notmrk Position: 048 18.951 N   014 19.042 E   INFORM      (1)(1)(1  company Lavarge)
+* Function to go through the symbols and consolidate the palettes - delete unused and if the same color is used, replace with just one palette entry and modify symbol
