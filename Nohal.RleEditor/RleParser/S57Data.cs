@@ -75,7 +75,7 @@ namespace Nohal.RleEditor.RleParser
             csvu.Dispose();
 
             //warning: there are errors in the distributed attdecode.csv (, instead of ; etc...), duplicates (CATBUA, CATGAT, CATMOR etc.), so the file has to be manually repaired to be CSV before use
-            csvu = new CsvReader(new StreamReader(decodingsFile), true, ',', '"', '\\', '#', true);
+            csvu = new CsvReader(new StreamReader(decodingsFile), true, ',', '"', '\\', '#', ValueTrimmingOptions.All);
             while (csvu.ReadNextRecord())
             {
                 S57AttributeDecode attrd = new S57AttributeDecode()
@@ -98,7 +98,7 @@ namespace Nohal.RleEditor.RleParser
             }
             csvu.Dispose();
 
-            csvu = new CsvReader(new StreamReader(expectedInputFile), true, ',', '"', '\\', '#', true);
+            csvu = new CsvReader(new StreamReader(expectedInputFile), true, ',', '"', '\\', '#', ValueTrimmingOptions.All);
             while (csvu.ReadNextRecord())
             {
                 S57ExpectedInput expi = new S57ExpectedInput()
