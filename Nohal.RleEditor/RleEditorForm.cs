@@ -1484,5 +1484,23 @@ namespace Nohal.RleEditor
                 DisplaySelectedVector();   
             }
         }
+
+        private void symbolsToPNGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog dlg = new FolderBrowserDialog();
+            dlg.ShowNewFolderButton = true;
+            dlg.Description = "Select a folder where all the bitmaps will be saved.";
+            if(dlg.ShowDialog() == DialogResult.OK)
+            {
+                string path = dlg.SelectedPath;
+                foreach(BitmapSymbol s in parser.SymbolBitmaps.Values) {
+                    parser.ExportSymbolToBitmap(Path.Combine(path, s.Code) + ".png", s, ImageFormat.Png);
+                }
+                foreach (BitmapPattern s in parser.PatternBitmaps.Values)
+                {
+                    parser.ExportSymbolToBitmap(Path.Combine(path, s.Code) + ".png", s, ImageFormat.Png);
+                }
+            }
+        }
     }
 }

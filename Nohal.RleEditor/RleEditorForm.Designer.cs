@@ -90,6 +90,8 @@ namespace Nohal.RleEditor
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.tabPageBitmaps = new System.Windows.Forms.TabPage();
+            this.tbSymbolCode = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
             this.colorComboBox1 = new System.Windows.Forms.ComboBox();
             this.btnCloneBitmap = new System.Windows.Forms.Button();
             this.label36 = new System.Windows.Forms.Label();
@@ -103,6 +105,8 @@ namespace Nohal.RleEditor
             this.textBoxBitmapText = new System.Windows.Forms.TextBox();
             this.comboBoxZoom = new System.Windows.Forms.ComboBox();
             this.tabPageVectors = new System.Windows.Forms.TabPage();
+            this.tbVectorCode = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
             this.btnCloneVector = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
             this.numericUpDownVectorSymbolId = new System.Windows.Forms.NumericUpDown();
@@ -195,10 +199,7 @@ namespace Nohal.RleEditor
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documentationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tbSymbolCode = new System.Windows.Forms.TextBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.tbVectorCode = new System.Windows.Forms.TextBox();
-            this.label38 = new System.Windows.Forms.Label();
+            this.symbolsToPNGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBitmapView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBitmapOffsetX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBitmapOffsetY)).BeginInit();
@@ -242,7 +243,7 @@ namespace Nohal.RleEditor
             // 
             this.buttonOpenFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOpenFile.Location = new System.Drawing.Point(602, 41);
-            this.buttonOpenFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonOpenFile.Margin = new System.Windows.Forms.Padding(2);
             this.buttonOpenFile.Name = "buttonOpenFile";
             this.buttonOpenFile.Size = new System.Drawing.Size(56, 19);
             this.buttonOpenFile.TabIndex = 0;
@@ -255,7 +256,7 @@ namespace Nohal.RleEditor
             this.textBoxFilename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxFilename.Location = new System.Drawing.Point(9, 41);
-            this.textBoxFilename.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxFilename.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxFilename.Name = "textBoxFilename";
             this.textBoxFilename.ReadOnly = true;
             this.textBoxFilename.Size = new System.Drawing.Size(587, 20);
@@ -277,7 +278,7 @@ namespace Nohal.RleEditor
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.listBoxBitmaps.FormattingEnabled = true;
             this.listBoxBitmaps.Location = new System.Drawing.Point(3, 95);
-            this.listBoxBitmaps.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBoxBitmaps.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxBitmaps.Name = "listBoxBitmaps";
             this.listBoxBitmaps.Size = new System.Drawing.Size(92, 303);
             this.listBoxBitmaps.Sorted = true;
@@ -299,7 +300,7 @@ namespace Nohal.RleEditor
             this.comboBoxBitmapColorTables.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxBitmapColorTables.FormattingEnabled = true;
             this.comboBoxBitmapColorTables.Location = new System.Drawing.Point(4, 19);
-            this.comboBoxBitmapColorTables.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxBitmapColorTables.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxBitmapColorTables.Name = "comboBoxBitmapColorTables";
             this.comboBoxBitmapColorTables.Size = new System.Drawing.Size(92, 21);
             this.comboBoxBitmapColorTables.TabIndex = 5;
@@ -318,7 +319,7 @@ namespace Nohal.RleEditor
             // pictureBoxBitmapView
             // 
             this.pictureBoxBitmapView.Location = new System.Drawing.Point(99, 95);
-            this.pictureBoxBitmapView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxBitmapView.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxBitmapView.Name = "pictureBoxBitmapView";
             this.pictureBoxBitmapView.Size = new System.Drawing.Size(106, 288);
             this.pictureBoxBitmapView.TabIndex = 9;
@@ -328,7 +329,7 @@ namespace Nohal.RleEditor
             // 
             this.numericUpDownBitmapOffsetX.Enabled = false;
             this.numericUpDownBitmapOffsetX.Location = new System.Drawing.Point(313, 21);
-            this.numericUpDownBitmapOffsetX.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownBitmapOffsetX.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownBitmapOffsetX.Maximum = new decimal(new int[] {
             999,
             0,
@@ -368,7 +369,7 @@ namespace Nohal.RleEditor
             // 
             this.numericUpDownBitmapOffsetY.Enabled = false;
             this.numericUpDownBitmapOffsetY.Location = new System.Drawing.Point(353, 20);
-            this.numericUpDownBitmapOffsetY.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownBitmapOffsetY.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownBitmapOffsetY.Maximum = new decimal(new int[] {
             999,
             0,
@@ -398,7 +399,7 @@ namespace Nohal.RleEditor
             // 
             this.numericUpDownBitmapWidth.Enabled = false;
             this.numericUpDownBitmapWidth.Location = new System.Drawing.Point(391, 20);
-            this.numericUpDownBitmapWidth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownBitmapWidth.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownBitmapWidth.Maximum = new decimal(new int[] {
             999,
             0,
@@ -423,7 +424,7 @@ namespace Nohal.RleEditor
             // 
             this.numericUpDownBitmapHeight.Enabled = false;
             this.numericUpDownBitmapHeight.Location = new System.Drawing.Point(431, 21);
-            this.numericUpDownBitmapHeight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownBitmapHeight.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownBitmapHeight.Maximum = new decimal(new int[] {
             999,
             0,
@@ -448,7 +449,7 @@ namespace Nohal.RleEditor
             // 
             this.numericUpDownBitmapHotspotX.Enabled = false;
             this.numericUpDownBitmapHotspotX.Location = new System.Drawing.Point(470, 21);
-            this.numericUpDownBitmapHotspotX.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownBitmapHotspotX.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownBitmapHotspotX.Maximum = new decimal(new int[] {
             999,
             0,
@@ -473,7 +474,7 @@ namespace Nohal.RleEditor
             // 
             this.numericUpDownBitmapHotspotY.Enabled = false;
             this.numericUpDownBitmapHotspotY.Location = new System.Drawing.Point(510, 20);
-            this.numericUpDownBitmapHotspotY.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownBitmapHotspotY.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownBitmapHotspotY.Maximum = new decimal(new int[] {
             999,
             0,
@@ -487,7 +488,7 @@ namespace Nohal.RleEditor
             // textBoxBitmapVal1
             // 
             this.textBoxBitmapVal1.Location = new System.Drawing.Point(164, 20);
-            this.textBoxBitmapVal1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxBitmapVal1.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBitmapVal1.Name = "textBoxBitmapVal1";
             this.textBoxBitmapVal1.ReadOnly = true;
             this.textBoxBitmapVal1.Size = new System.Drawing.Size(22, 20);
@@ -518,7 +519,7 @@ namespace Nohal.RleEditor
             this.textBoxBitmapDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxBitmapDescription.Location = new System.Drawing.Point(74, 56);
-            this.textBoxBitmapDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxBitmapDescription.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBitmapDescription.Name = "textBoxBitmapDescription";
             this.textBoxBitmapDescription.ReadOnly = true;
             this.textBoxBitmapDescription.Size = new System.Drawing.Size(562, 20);
@@ -537,7 +538,7 @@ namespace Nohal.RleEditor
             // textBoxBitmapVal2
             // 
             this.textBoxBitmapVal2.Location = new System.Drawing.Point(189, 20);
-            this.textBoxBitmapVal2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxBitmapVal2.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBitmapVal2.Name = "textBoxBitmapVal2";
             this.textBoxBitmapVal2.ReadOnly = true;
             this.textBoxBitmapVal2.Size = new System.Drawing.Size(41, 20);
@@ -557,7 +558,7 @@ namespace Nohal.RleEditor
             // 
             this.numericUpDownBitmapValue3.Enabled = false;
             this.numericUpDownBitmapValue3.Location = new System.Drawing.Point(234, 21);
-            this.numericUpDownBitmapValue3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownBitmapValue3.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownBitmapValue3.Maximum = new decimal(new int[] {
             999,
             0,
@@ -587,7 +588,7 @@ namespace Nohal.RleEditor
             // 
             this.numericUpDownBitmapValue4.Enabled = false;
             this.numericUpDownBitmapValue4.Location = new System.Drawing.Point(273, 20);
-            this.numericUpDownBitmapValue4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownBitmapValue4.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownBitmapValue4.Maximum = new decimal(new int[] {
             999,
             0,
@@ -614,7 +615,7 @@ namespace Nohal.RleEditor
             this.tabControl.Controls.Add(this.tabPageLUPTs);
             this.tabControl.Enabled = false;
             this.tabControl.Location = new System.Drawing.Point(9, 64);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(650, 440);
@@ -644,9 +645,9 @@ namespace Nohal.RleEditor
             this.tabPageColorTables.Controls.Add(this.comboBoxColorTablesList);
             this.tabPageColorTables.Controls.Add(this.listViewColorTable);
             this.tabPageColorTables.Location = new System.Drawing.Point(4, 22);
-            this.tabPageColorTables.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageColorTables.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageColorTables.Name = "tabPageColorTables";
-            this.tabPageColorTables.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageColorTables.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageColorTables.Size = new System.Drawing.Size(642, 414);
             this.tabPageColorTables.TabIndex = 0;
             this.tabPageColorTables.Text = "Color Tables";
@@ -655,7 +656,7 @@ namespace Nohal.RleEditor
             // btnDeleteColorTable
             // 
             this.btnDeleteColorTable.Location = new System.Drawing.Point(584, 265);
-            this.btnDeleteColorTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteColorTable.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteColorTable.Name = "btnDeleteColorTable";
             this.btnDeleteColorTable.Size = new System.Drawing.Size(56, 19);
             this.btnDeleteColorTable.TabIndex = 43;
@@ -666,7 +667,7 @@ namespace Nohal.RleEditor
             // btnReplaceColorTables
             // 
             this.btnReplaceColorTables.Location = new System.Drawing.Point(584, 243);
-            this.btnReplaceColorTables.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReplaceColorTables.Margin = new System.Windows.Forms.Padding(2);
             this.btnReplaceColorTables.Name = "btnReplaceColorTables";
             this.btnReplaceColorTables.Size = new System.Drawing.Size(56, 19);
             this.btnReplaceColorTables.TabIndex = 42;
@@ -677,7 +678,7 @@ namespace Nohal.RleEditor
             // btnMergeColorTables
             // 
             this.btnMergeColorTables.Location = new System.Drawing.Point(522, 243);
-            this.btnMergeColorTables.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMergeColorTables.Margin = new System.Windows.Forms.Padding(2);
             this.btnMergeColorTables.Name = "btnMergeColorTables";
             this.btnMergeColorTables.Size = new System.Drawing.Size(56, 19);
             this.btnMergeColorTables.TabIndex = 41;
@@ -688,7 +689,7 @@ namespace Nohal.RleEditor
             // btnExportColorTables
             // 
             this.btnExportColorTables.Location = new System.Drawing.Point(584, 221);
-            this.btnExportColorTables.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExportColorTables.Margin = new System.Windows.Forms.Padding(2);
             this.btnExportColorTables.Name = "btnExportColorTables";
             this.btnExportColorTables.Size = new System.Drawing.Size(56, 19);
             this.btnExportColorTables.TabIndex = 40;
@@ -699,7 +700,7 @@ namespace Nohal.RleEditor
             // btnExportColorTable
             // 
             this.btnExportColorTable.Location = new System.Drawing.Point(522, 221);
-            this.btnExportColorTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExportColorTable.Margin = new System.Windows.Forms.Padding(2);
             this.btnExportColorTable.Name = "btnExportColorTable";
             this.btnExportColorTable.Size = new System.Drawing.Size(56, 19);
             this.btnExportColorTable.TabIndex = 39;
@@ -710,7 +711,7 @@ namespace Nohal.RleEditor
             // pictureBoxColorSample
             // 
             this.pictureBoxColorSample.Location = new System.Drawing.Point(434, 125);
-            this.pictureBoxColorSample.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxColorSample.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxColorSample.Name = "pictureBoxColorSample";
             this.pictureBoxColorSample.Size = new System.Drawing.Size(206, 91);
             this.pictureBoxColorSample.TabIndex = 38;
@@ -719,7 +720,7 @@ namespace Nohal.RleEditor
             // buttonCommitColorChange
             // 
             this.buttonCommitColorChange.Location = new System.Drawing.Point(434, 221);
-            this.buttonCommitColorChange.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonCommitColorChange.Margin = new System.Windows.Forms.Padding(2);
             this.buttonCommitColorChange.Name = "buttonCommitColorChange";
             this.buttonCommitColorChange.Size = new System.Drawing.Size(56, 19);
             this.buttonCommitColorChange.TabIndex = 37;
@@ -730,7 +731,7 @@ namespace Nohal.RleEditor
             // buttonShowColorDialog
             // 
             this.buttonShowColorDialog.Location = new System.Drawing.Point(373, 221);
-            this.buttonShowColorDialog.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonShowColorDialog.Margin = new System.Windows.Forms.Padding(2);
             this.buttonShowColorDialog.Name = "buttonShowColorDialog";
             this.buttonShowColorDialog.Size = new System.Drawing.Size(56, 19);
             this.buttonShowColorDialog.TabIndex = 36;
@@ -747,7 +748,7 @@ namespace Nohal.RleEditor
             0,
             131072});
             this.numericUpDownEditColory1.Location = new System.Drawing.Point(373, 198);
-            this.numericUpDownEditColory1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownEditColory1.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownEditColory1.Name = "numericUpDownEditColory1";
             this.numericUpDownEditColory1.Size = new System.Drawing.Size(57, 20);
             this.numericUpDownEditColory1.TabIndex = 35;
@@ -772,7 +773,7 @@ namespace Nohal.RleEditor
             0,
             131072});
             this.numericUpDownEditColorx.Location = new System.Drawing.Point(373, 162);
-            this.numericUpDownEditColorx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownEditColorx.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownEditColorx.Name = "numericUpDownEditColorx";
             this.numericUpDownEditColorx.Size = new System.Drawing.Size(57, 20);
             this.numericUpDownEditColorx.TabIndex = 33;
@@ -797,7 +798,7 @@ namespace Nohal.RleEditor
             0,
             131072});
             this.numericUpDownEditColorY.Location = new System.Drawing.Point(373, 125);
-            this.numericUpDownEditColorY.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownEditColorY.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownEditColorY.Name = "numericUpDownEditColorY";
             this.numericUpDownEditColorY.Size = new System.Drawing.Size(57, 20);
             this.numericUpDownEditColorY.TabIndex = 31;
@@ -826,7 +827,7 @@ namespace Nohal.RleEditor
             // textBoxColorName
             // 
             this.textBoxColorName.Location = new System.Drawing.Point(373, 89);
-            this.textBoxColorName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxColorName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxColorName.Name = "textBoxColorName";
             this.textBoxColorName.Size = new System.Drawing.Size(268, 20);
             this.textBoxColorName.TabIndex = 27;
@@ -844,7 +845,7 @@ namespace Nohal.RleEditor
             // textBoxColorCode
             // 
             this.textBoxColorCode.Location = new System.Drawing.Point(373, 50);
-            this.textBoxColorCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxColorCode.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxColorCode.Name = "textBoxColorCode";
             this.textBoxColorCode.ReadOnly = true;
             this.textBoxColorCode.Size = new System.Drawing.Size(268, 20);
@@ -865,7 +866,7 @@ namespace Nohal.RleEditor
             this.comboBoxColorTablesList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxColorTablesList.FormattingEnabled = true;
             this.comboBoxColorTablesList.Location = new System.Drawing.Point(64, 7);
-            this.comboBoxColorTablesList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxColorTablesList.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxColorTablesList.Name = "comboBoxColorTablesList";
             this.comboBoxColorTablesList.Size = new System.Drawing.Size(126, 21);
             this.comboBoxColorTablesList.TabIndex = 7;
@@ -884,7 +885,7 @@ namespace Nohal.RleEditor
             this.listViewColorTable.FullRowSelect = true;
             this.listViewColorTable.GridLines = true;
             this.listViewColorTable.Location = new System.Drawing.Point(4, 33);
-            this.listViewColorTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewColorTable.Margin = new System.Windows.Forms.Padding(2);
             this.listViewColorTable.MultiSelect = false;
             this.listViewColorTable.Name = "listViewColorTable";
             this.listViewColorTable.Size = new System.Drawing.Size(362, 379);
@@ -957,13 +958,34 @@ namespace Nohal.RleEditor
             this.tabPageBitmaps.Controls.Add(this.label7);
             this.tabPageBitmaps.Controls.Add(this.numericUpDownBitmapHotspotX);
             this.tabPageBitmaps.Location = new System.Drawing.Point(4, 22);
-            this.tabPageBitmaps.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageBitmaps.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageBitmaps.Name = "tabPageBitmaps";
-            this.tabPageBitmaps.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageBitmaps.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageBitmaps.Size = new System.Drawing.Size(642, 414);
             this.tabPageBitmaps.TabIndex = 1;
             this.tabPageBitmaps.Text = "Bitmaps";
             this.tabPageBitmaps.UseVisualStyleBackColor = true;
+            // 
+            // tbSymbolCode
+            // 
+            this.tbSymbolCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbSymbolCode.Location = new System.Drawing.Point(4, 56);
+            this.tbSymbolCode.Margin = new System.Windows.Forms.Padding(2);
+            this.tbSymbolCode.Name = "tbSymbolCode";
+            this.tbSymbolCode.ReadOnly = true;
+            this.tbSymbolCode.Size = new System.Drawing.Size(66, 20);
+            this.tbSymbolCode.TabIndex = 75;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(1, 41);
+            this.label37.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(41, 13);
+            this.label37.TabIndex = 74;
+            this.label37.Text = "Symbol";
             // 
             // colorComboBox1
             // 
@@ -971,7 +993,7 @@ namespace Nohal.RleEditor
             this.colorComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.colorComboBox1.FormattingEnabled = true;
             this.colorComboBox1.Location = new System.Drawing.Point(211, 94);
-            this.colorComboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.colorComboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.colorComboBox1.Name = "colorComboBox1";
             this.colorComboBox1.Size = new System.Drawing.Size(55, 21);
             this.colorComboBox1.TabIndex = 73;
@@ -981,7 +1003,7 @@ namespace Nohal.RleEditor
             // 
             this.btnCloneBitmap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCloneBitmap.Location = new System.Drawing.Point(362, 94);
-            this.btnCloneBitmap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCloneBitmap.Margin = new System.Windows.Forms.Padding(2);
             this.btnCloneBitmap.Name = "btnCloneBitmap";
             this.btnCloneBitmap.Size = new System.Drawing.Size(52, 20);
             this.btnCloneBitmap.TabIndex = 72;
@@ -1003,7 +1025,7 @@ namespace Nohal.RleEditor
             // 
             this.numericUpDownBitmapSymbolId.Enabled = false;
             this.numericUpDownBitmapSymbolId.Location = new System.Drawing.Point(100, 20);
-            this.numericUpDownBitmapSymbolId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownBitmapSymbolId.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownBitmapSymbolId.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -1018,7 +1040,7 @@ namespace Nohal.RleEditor
             // 
             this.btnExportBitmap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExportBitmap.Location = new System.Drawing.Point(474, 94);
-            this.btnExportBitmap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExportBitmap.Margin = new System.Windows.Forms.Padding(2);
             this.btnExportBitmap.Name = "btnExportBitmap";
             this.btnExportBitmap.Size = new System.Drawing.Size(52, 20);
             this.btnExportBitmap.TabIndex = 67;
@@ -1030,7 +1052,7 @@ namespace Nohal.RleEditor
             // 
             this.btnMergeBitmaps.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMergeBitmaps.Location = new System.Drawing.Point(418, 94);
-            this.btnMergeBitmaps.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMergeBitmaps.Margin = new System.Windows.Forms.Padding(2);
             this.btnMergeBitmaps.Name = "btnMergeBitmaps";
             this.btnMergeBitmaps.Size = new System.Drawing.Size(52, 20);
             this.btnMergeBitmaps.TabIndex = 66;
@@ -1042,7 +1064,7 @@ namespace Nohal.RleEditor
             // 
             this.btnExportBitmaps.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExportBitmaps.Location = new System.Drawing.Point(530, 94);
-            this.btnExportBitmaps.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExportBitmaps.Margin = new System.Windows.Forms.Padding(2);
             this.btnExportBitmaps.Name = "btnExportBitmaps";
             this.btnExportBitmaps.Size = new System.Drawing.Size(66, 20);
             this.btnExportBitmaps.TabIndex = 63;
@@ -1054,7 +1076,7 @@ namespace Nohal.RleEditor
             // 
             this.btnDeleteBitmap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeleteBitmap.Location = new System.Drawing.Point(600, 94);
-            this.btnDeleteBitmap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteBitmap.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteBitmap.Name = "btnDeleteBitmap";
             this.btnDeleteBitmap.Size = new System.Drawing.Size(34, 20);
             this.btnDeleteBitmap.TabIndex = 37;
@@ -1069,7 +1091,7 @@ namespace Nohal.RleEditor
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer2.Location = new System.Drawing.Point(210, 120);
-            this.splitContainer2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -1089,7 +1111,7 @@ namespace Nohal.RleEditor
             // pictureBoxBitmapEditor
             // 
             this.pictureBoxBitmapEditor.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxBitmapEditor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxBitmapEditor.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxBitmapEditor.Name = "pictureBoxBitmapEditor";
             this.pictureBoxBitmapEditor.Size = new System.Drawing.Size(297, 155);
             this.pictureBoxBitmapEditor.TabIndex = 33;
@@ -1101,7 +1123,7 @@ namespace Nohal.RleEditor
             this.textBoxBitmapText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxBitmapText.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxBitmapText.Location = new System.Drawing.Point(0, 0);
-            this.textBoxBitmapText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxBitmapText.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxBitmapText.Multiline = true;
             this.textBoxBitmapText.Name = "textBoxBitmapText";
             this.textBoxBitmapText.ReadOnly = true;
@@ -1122,7 +1144,7 @@ namespace Nohal.RleEditor
             "1000%",
             "2000%"});
             this.comboBoxZoom.Location = new System.Drawing.Point(269, 95);
-            this.comboBoxZoom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxZoom.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxZoom.Name = "comboBoxZoom";
             this.comboBoxZoom.Size = new System.Drawing.Size(55, 21);
             this.comboBoxZoom.TabIndex = 35;
@@ -1167,19 +1189,40 @@ namespace Nohal.RleEditor
             this.tabPageVectors.Controls.Add(this.label34);
             this.tabPageVectors.Controls.Add(this.numericUpDownVectorHotspotX);
             this.tabPageVectors.Location = new System.Drawing.Point(4, 22);
-            this.tabPageVectors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageVectors.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageVectors.Name = "tabPageVectors";
-            this.tabPageVectors.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageVectors.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageVectors.Size = new System.Drawing.Size(642, 414);
             this.tabPageVectors.TabIndex = 2;
             this.tabPageVectors.Text = "Vectors";
             this.tabPageVectors.UseVisualStyleBackColor = true;
             // 
+            // tbVectorCode
+            // 
+            this.tbVectorCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbVectorCode.Location = new System.Drawing.Point(7, 56);
+            this.tbVectorCode.Margin = new System.Windows.Forms.Padding(2);
+            this.tbVectorCode.Name = "tbVectorCode";
+            this.tbVectorCode.ReadOnly = true;
+            this.tbVectorCode.Size = new System.Drawing.Size(66, 20);
+            this.tbVectorCode.TabIndex = 77;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(4, 41);
+            this.label38.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(41, 13);
+            this.label38.TabIndex = 76;
+            this.label38.Text = "Symbol";
+            // 
             // btnCloneVector
             // 
             this.btnCloneVector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCloneVector.Location = new System.Drawing.Point(354, 94);
-            this.btnCloneVector.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCloneVector.Margin = new System.Windows.Forms.Padding(2);
             this.btnCloneVector.Name = "btnCloneVector";
             this.btnCloneVector.Size = new System.Drawing.Size(52, 20);
             this.btnCloneVector.TabIndex = 73;
@@ -1201,7 +1244,7 @@ namespace Nohal.RleEditor
             // 
             this.numericUpDownVectorSymbolId.Enabled = false;
             this.numericUpDownVectorSymbolId.Location = new System.Drawing.Point(102, 18);
-            this.numericUpDownVectorSymbolId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownVectorSymbolId.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownVectorSymbolId.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -1216,7 +1259,7 @@ namespace Nohal.RleEditor
             // 
             this.btnExportVector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExportVector.Location = new System.Drawing.Point(466, 94);
-            this.btnExportVector.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExportVector.Margin = new System.Windows.Forms.Padding(2);
             this.btnExportVector.Name = "btnExportVector";
             this.btnExportVector.Size = new System.Drawing.Size(52, 20);
             this.btnExportVector.TabIndex = 67;
@@ -1228,7 +1271,7 @@ namespace Nohal.RleEditor
             // 
             this.btnMergeVectors.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMergeVectors.Location = new System.Drawing.Point(410, 94);
-            this.btnMergeVectors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMergeVectors.Margin = new System.Windows.Forms.Padding(2);
             this.btnMergeVectors.Name = "btnMergeVectors";
             this.btnMergeVectors.Size = new System.Drawing.Size(52, 20);
             this.btnMergeVectors.TabIndex = 66;
@@ -1240,7 +1283,7 @@ namespace Nohal.RleEditor
             // 
             this.btnExportVectors.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExportVectors.Location = new System.Drawing.Point(522, 94);
-            this.btnExportVectors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExportVectors.Margin = new System.Windows.Forms.Padding(2);
             this.btnExportVectors.Name = "btnExportVectors";
             this.btnExportVectors.Size = new System.Drawing.Size(66, 20);
             this.btnExportVectors.TabIndex = 62;
@@ -1252,7 +1295,7 @@ namespace Nohal.RleEditor
             // 
             this.btnDelVector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelVector.Location = new System.Drawing.Point(593, 94);
-            this.btnDelVector.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelVector.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelVector.Name = "btnDelVector";
             this.btnDelVector.Size = new System.Drawing.Size(34, 20);
             this.btnDelVector.TabIndex = 61;
@@ -1267,7 +1310,7 @@ namespace Nohal.RleEditor
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer1.Location = new System.Drawing.Point(106, 119);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -1287,7 +1330,7 @@ namespace Nohal.RleEditor
             // pictureBoxVectorRendering
             // 
             this.pictureBoxVectorRendering.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxVectorRendering.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxVectorRendering.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxVectorRendering.Name = "pictureBoxVectorRendering";
             this.pictureBoxVectorRendering.Size = new System.Drawing.Size(431, 185);
             this.pictureBoxVectorRendering.TabIndex = 0;
@@ -1298,7 +1341,7 @@ namespace Nohal.RleEditor
             this.textBoxVectors.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxVectors.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxVectors.Location = new System.Drawing.Point(0, 0);
-            this.textBoxVectors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxVectors.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxVectors.Multiline = true;
             this.textBoxVectors.Name = "textBoxVectors";
             this.textBoxVectors.ReadOnly = true;
@@ -1333,7 +1376,7 @@ namespace Nohal.RleEditor
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.listBoxVectors.FormattingEnabled = true;
             this.listBoxVectors.Location = new System.Drawing.Point(3, 95);
-            this.listBoxVectors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBoxVectors.Margin = new System.Windows.Forms.Padding(2);
             this.listBoxVectors.Name = "listBoxVectors";
             this.listBoxVectors.Size = new System.Drawing.Size(92, 303);
             this.listBoxVectors.Sorted = true;
@@ -1344,7 +1387,7 @@ namespace Nohal.RleEditor
             // 
             this.numericUpDownVectorVal4.Enabled = false;
             this.numericUpDownVectorVal4.Location = new System.Drawing.Point(282, 17);
-            this.numericUpDownVectorVal4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownVectorVal4.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownVectorVal4.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -1385,7 +1428,7 @@ namespace Nohal.RleEditor
             this.comboBoxVectorColorTables.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxVectorColorTables.FormattingEnabled = true;
             this.comboBoxVectorColorTables.Location = new System.Drawing.Point(6, 17);
-            this.comboBoxVectorColorTables.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxVectorColorTables.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxVectorColorTables.Name = "comboBoxVectorColorTables";
             this.comboBoxVectorColorTables.Size = new System.Drawing.Size(92, 21);
             this.comboBoxVectorColorTables.TabIndex = 35;
@@ -1395,7 +1438,7 @@ namespace Nohal.RleEditor
             // 
             this.numericUpDownVectorVal3.Enabled = false;
             this.numericUpDownVectorVal3.Location = new System.Drawing.Point(236, 17);
-            this.numericUpDownVectorVal3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownVectorVal3.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownVectorVal3.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -1424,7 +1467,7 @@ namespace Nohal.RleEditor
             // textBoxVectorVal2
             // 
             this.textBoxVectorVal2.Location = new System.Drawing.Point(191, 18);
-            this.textBoxVectorVal2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxVectorVal2.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxVectorVal2.Name = "textBoxVectorVal2";
             this.textBoxVectorVal2.ReadOnly = true;
             this.textBoxVectorVal2.Size = new System.Drawing.Size(41, 20);
@@ -1434,7 +1477,7 @@ namespace Nohal.RleEditor
             // 
             this.numericUpDownVectorOffsetX.Enabled = false;
             this.numericUpDownVectorOffsetX.Location = new System.Drawing.Point(327, 17);
-            this.numericUpDownVectorOffsetX.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownVectorOffsetX.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownVectorOffsetX.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -1455,7 +1498,7 @@ namespace Nohal.RleEditor
             this.textBoxVectorDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxVectorDescription.Location = new System.Drawing.Point(77, 56);
-            this.textBoxVectorDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxVectorDescription.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxVectorDescription.Name = "textBoxVectorDescription";
             this.textBoxVectorDescription.ReadOnly = true;
             this.textBoxVectorDescription.Size = new System.Drawing.Size(551, 20);
@@ -1485,7 +1528,7 @@ namespace Nohal.RleEditor
             // 
             this.numericUpDownVectorOffsetY.Enabled = false;
             this.numericUpDownVectorOffsetY.Location = new System.Drawing.Point(373, 17);
-            this.numericUpDownVectorOffsetY.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownVectorOffsetY.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownVectorOffsetY.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -1524,7 +1567,7 @@ namespace Nohal.RleEditor
             // textBoxVectorVal1
             // 
             this.textBoxVectorVal1.Location = new System.Drawing.Point(166, 18);
-            this.textBoxVectorVal1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxVectorVal1.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxVectorVal1.Name = "textBoxVectorVal1";
             this.textBoxVectorVal1.ReadOnly = true;
             this.textBoxVectorVal1.Size = new System.Drawing.Size(22, 20);
@@ -1534,7 +1577,7 @@ namespace Nohal.RleEditor
             // 
             this.numericUpDownVectorWidth.Enabled = false;
             this.numericUpDownVectorWidth.Location = new System.Drawing.Point(419, 17);
-            this.numericUpDownVectorWidth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownVectorWidth.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownVectorWidth.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -1569,7 +1612,7 @@ namespace Nohal.RleEditor
             // 
             this.numericUpDownVectorHotspotY.Enabled = false;
             this.numericUpDownVectorHotspotY.Location = new System.Drawing.Point(556, 17);
-            this.numericUpDownVectorHotspotY.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownVectorHotspotY.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownVectorHotspotY.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -1589,7 +1632,7 @@ namespace Nohal.RleEditor
             // 
             this.numericUpDownVectorHeight.Enabled = false;
             this.numericUpDownVectorHeight.Location = new System.Drawing.Point(464, 17);
-            this.numericUpDownVectorHeight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownVectorHeight.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownVectorHeight.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -1624,7 +1667,7 @@ namespace Nohal.RleEditor
             // 
             this.numericUpDownVectorHotspotX.Enabled = false;
             this.numericUpDownVectorHotspotX.Location = new System.Drawing.Point(510, 17);
-            this.numericUpDownVectorHotspotX.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownVectorHotspotX.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownVectorHotspotX.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -1654,9 +1697,9 @@ namespace Nohal.RleEditor
             this.tabPageLUPTs.Controls.Add(this.label16);
             this.tabPageLUPTs.Controls.Add(this.comboBoxLookupTables);
             this.tabPageLUPTs.Location = new System.Drawing.Point(4, 22);
-            this.tabPageLUPTs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageLUPTs.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageLUPTs.Name = "tabPageLUPTs";
-            this.tabPageLUPTs.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageLUPTs.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageLUPTs.Size = new System.Drawing.Size(642, 414);
             this.tabPageLUPTs.TabIndex = 3;
             this.tabPageLUPTs.Text = "Lookup tables";
@@ -1666,7 +1709,7 @@ namespace Nohal.RleEditor
             // 
             this.btnEditLupt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditLupt.Location = new System.Drawing.Point(350, 5);
-            this.btnEditLupt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditLupt.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditLupt.Name = "btnEditLupt";
             this.btnEditLupt.Size = new System.Drawing.Size(41, 20);
             this.btnEditLupt.TabIndex = 71;
@@ -1678,7 +1721,7 @@ namespace Nohal.RleEditor
             // 
             this.btnDeleteLupt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeleteLupt.Location = new System.Drawing.Point(396, 5);
-            this.btnDeleteLupt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteLupt.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteLupt.Name = "btnDeleteLupt";
             this.btnDeleteLupt.Size = new System.Drawing.Size(41, 20);
             this.btnDeleteLupt.TabIndex = 70;
@@ -1690,7 +1733,7 @@ namespace Nohal.RleEditor
             // 
             this.btnCloneRule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCloneRule.Location = new System.Drawing.Point(304, 5);
-            this.btnCloneRule.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCloneRule.Margin = new System.Windows.Forms.Padding(2);
             this.btnCloneRule.Name = "btnCloneRule";
             this.btnCloneRule.Size = new System.Drawing.Size(41, 20);
             this.btnCloneRule.TabIndex = 69;
@@ -1702,7 +1745,7 @@ namespace Nohal.RleEditor
             // 
             this.btnNewRule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNewRule.Location = new System.Drawing.Point(259, 5);
-            this.btnNewRule.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNewRule.Margin = new System.Windows.Forms.Padding(2);
             this.btnNewRule.Name = "btnNewRule";
             this.btnNewRule.Size = new System.Drawing.Size(41, 20);
             this.btnNewRule.TabIndex = 68;
@@ -1720,7 +1763,7 @@ namespace Nohal.RleEditor
             this.listViewLookupTable.FullRowSelect = true;
             this.listViewLookupTable.GridLines = true;
             this.listViewLookupTable.Location = new System.Drawing.Point(2, 28);
-            this.listViewLookupTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listViewLookupTable.Margin = new System.Windows.Forms.Padding(2);
             this.listViewLookupTable.MultiSelect = false;
             this.listViewLookupTable.Name = "listViewLookupTable";
             this.listViewLookupTable.Size = new System.Drawing.Size(640, 385);
@@ -1738,7 +1781,7 @@ namespace Nohal.RleEditor
             // 
             this.btnSortLupt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSortLupt.Location = new System.Drawing.Point(442, 4);
-            this.btnSortLupt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSortLupt.Margin = new System.Windows.Forms.Padding(2);
             this.btnSortLupt.Name = "btnSortLupt";
             this.btnSortLupt.Size = new System.Drawing.Size(41, 20);
             this.btnSortLupt.TabIndex = 66;
@@ -1750,7 +1793,7 @@ namespace Nohal.RleEditor
             // 
             this.btnMergeLookupTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMergeLookupTable.Location = new System.Drawing.Point(488, 4);
-            this.btnMergeLookupTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMergeLookupTable.Margin = new System.Windows.Forms.Padding(2);
             this.btnMergeLookupTable.Name = "btnMergeLookupTable";
             this.btnMergeLookupTable.Size = new System.Drawing.Size(45, 20);
             this.btnMergeLookupTable.TabIndex = 65;
@@ -1762,7 +1805,7 @@ namespace Nohal.RleEditor
             // 
             this.btnReplaceTableFromFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReplaceTableFromFile.Location = new System.Drawing.Point(537, 4);
-            this.btnReplaceTableFromFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReplaceTableFromFile.Margin = new System.Windows.Forms.Padding(2);
             this.btnReplaceTableFromFile.Name = "btnReplaceTableFromFile";
             this.btnReplaceTableFromFile.Size = new System.Drawing.Size(56, 20);
             this.btnReplaceTableFromFile.TabIndex = 64;
@@ -1774,7 +1817,7 @@ namespace Nohal.RleEditor
             // 
             this.btnExportLookupTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExportLookupTable.Location = new System.Drawing.Point(597, 4);
-            this.btnExportLookupTable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExportLookupTable.Margin = new System.Windows.Forms.Padding(2);
             this.btnExportLookupTable.Name = "btnExportLookupTable";
             this.btnExportLookupTable.Size = new System.Drawing.Size(45, 20);
             this.btnExportLookupTable.TabIndex = 63;
@@ -1803,7 +1846,7 @@ namespace Nohal.RleEditor
             "Area - PLAIN_BOUNDARIES",
             "Area - SYMBOLIZED_BOUNDARIES"});
             this.comboBoxLookupTables.Location = new System.Drawing.Point(79, 5);
-            this.comboBoxLookupTables.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxLookupTables.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxLookupTables.Name = "comboBoxLookupTables";
             this.comboBoxLookupTables.Size = new System.Drawing.Size(176, 21);
             this.comboBoxLookupTables.TabIndex = 9;
@@ -1867,7 +1910,8 @@ namespace Nohal.RleEditor
             this.colorTablesToolStripMenuItem,
             this.bitmapsToolStripMenuItem,
             this.vectorsToolStripMenuItem,
-            this.lookupTablesToolStripMenuItem});
+            this.lookupTablesToolStripMenuItem,
+            this.symbolsToPNGToolStripMenuItem});
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
             this.exportToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.exportToolStripMenuItem.Text = "&Export";
@@ -1875,21 +1919,21 @@ namespace Nohal.RleEditor
             // colorTablesToolStripMenuItem
             // 
             this.colorTablesToolStripMenuItem.Name = "colorTablesToolStripMenuItem";
-            this.colorTablesToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.colorTablesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.colorTablesToolStripMenuItem.Text = "&Color tables...";
             this.colorTablesToolStripMenuItem.Click += new System.EventHandler(this.colorTablesToolStripMenuItem_Click);
             // 
             // bitmapsToolStripMenuItem
             // 
             this.bitmapsToolStripMenuItem.Name = "bitmapsToolStripMenuItem";
-            this.bitmapsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.bitmapsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.bitmapsToolStripMenuItem.Text = "&Bitmaps...";
             this.bitmapsToolStripMenuItem.Click += new System.EventHandler(this.bitmapsToolStripMenuItem_Click);
             // 
             // vectorsToolStripMenuItem
             // 
             this.vectorsToolStripMenuItem.Name = "vectorsToolStripMenuItem";
-            this.vectorsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.vectorsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.vectorsToolStripMenuItem.Text = "&Vectors...";
             this.vectorsToolStripMenuItem.Click += new System.EventHandler(this.vectorsToolStripMenuItem_Click);
             // 
@@ -1902,7 +1946,7 @@ namespace Nohal.RleEditor
             this.areaPLAINBORDERSToolStripMenuItem,
             this.areaSYMBOLIZEDBORDERSToolStripMenuItem});
             this.lookupTablesToolStripMenuItem.Name = "lookupTablesToolStripMenuItem";
-            this.lookupTablesToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.lookupTablesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.lookupTablesToolStripMenuItem.Text = "&Lookup table";
             // 
             // pointsPAPERCHARTToolStripMenuItem
@@ -2155,47 +2199,12 @@ namespace Nohal.RleEditor
             this.documentationToolStripMenuItem.Text = "&Documentation";
             this.documentationToolStripMenuItem.Click += new System.EventHandler(this.documentationToolStripMenuItem_Click);
             // 
-            // tbSymbolCode
+            // symbolsToPNGToolStripMenuItem
             // 
-            this.tbSymbolCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbSymbolCode.Location = new System.Drawing.Point(4, 56);
-            this.tbSymbolCode.Margin = new System.Windows.Forms.Padding(2);
-            this.tbSymbolCode.Name = "tbSymbolCode";
-            this.tbSymbolCode.ReadOnly = true;
-            this.tbSymbolCode.Size = new System.Drawing.Size(66, 20);
-            this.tbSymbolCode.TabIndex = 75;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(1, 41);
-            this.label37.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(41, 13);
-            this.label37.TabIndex = 74;
-            this.label37.Text = "Symbol";
-            // 
-            // tbVectorCode
-            // 
-            this.tbVectorCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbVectorCode.Location = new System.Drawing.Point(7, 56);
-            this.tbVectorCode.Margin = new System.Windows.Forms.Padding(2);
-            this.tbVectorCode.Name = "tbVectorCode";
-            this.tbVectorCode.ReadOnly = true;
-            this.tbVectorCode.Size = new System.Drawing.Size(66, 20);
-            this.tbVectorCode.TabIndex = 77;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(4, 41);
-            this.label38.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(41, 13);
-            this.label38.TabIndex = 76;
-            this.label38.Text = "Symbol";
+            this.symbolsToPNGToolStripMenuItem.Name = "symbolsToPNGToolStripMenuItem";
+            this.symbolsToPNGToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.symbolsToPNGToolStripMenuItem.Text = "Symbols to PNG";
+            this.symbolsToPNGToolStripMenuItem.Click += new System.EventHandler(this.symbolsToPNGToolStripMenuItem_Click);
             // 
             // RleEditorForm
             // 
@@ -2209,7 +2218,7 @@ namespace Nohal.RleEditor
             this.Controls.Add(this.menuStripMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStripMain;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(675, 411);
             this.Name = "RleEditorForm";
             this.Text = "Rasterization Rules Editor";
@@ -2434,6 +2443,7 @@ namespace Nohal.RleEditor
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TextBox tbVectorCode;
         private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.ToolStripMenuItem symbolsToPNGToolStripMenuItem;
     }
 }
 
